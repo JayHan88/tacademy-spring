@@ -1,25 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-  <bean id = "helloWithProperty" class="di.xml.Hello">
-    <property name="name" value="Spring" />
-    <property name="printer" ref="stringPrinter" />
-    <property name="names">
+  <context:property-placeholder location="classpath:config/value.properties" />
+
+    <bean id = "helloWithProperty" class="di.xml.Hello">
+      <property name="name" value="${myname}" />
+      <property name="printer" ref="${myprinter}" />
+      <property name="names">
+        <list>
+          <value>${listvalue1}</value>
+          <value>${listvalue2}</value>
+          <value>${listvalue3}</value>
+        </list>
+      </property>
+      <property name="nameAndAge">
+        <map>
+          <entry key="Kim" value="30" />
+          <entry key="Lee" value="35" />
+          <entry key="Han" value="40" />
+        </map>
+      </property>
+    </bean>
+
+  <bean id = "stringPrinter" class = "di.xml.StringPrinter" />
+  <bean id = "consolePrinter" class = "di.xml.ConsolePrinter" />
+
+  <bean id = "helloWithConstructorName" class="di.xml.Hello">
+    <constructor-arg name="name" value="${myname}" />
+    <constructor-arg name="printer" ref="${myprinter}" />
+    <constructor-arg name="names">
       <list>
-        <value>Spring</value>
-        <value>IoC</value>
-        <value>DI</value>
+        <value>${listvalue1}</value>
+        <value>${listvalue2}</value>
+        <value>${listvalue3}</value>
       </list>
-    </property>
-    <property name="nameAndAge">
+    </constructor-arg>
+    <constructor-arg name="nameAndAge">
       <map>
         <entry key="Kim" value="30" />
         <entry key="Lee" value="35" />
         <entry key="Han" value="40" />
       </map>
-    </property>
+    </constructor-arg>
   </bean>
 
   <bean id = "helloWithConstructorIndex" class="di.xml.Hello">
@@ -40,27 +65,5 @@
       </map>
     </constructor-arg>
   </bean>
-
-  <bean id = "helloWithConstructorName" class="di.xml.Hello">
-    <constructor-arg name="name" value="Spring" />
-    <constructor-arg name="printer" ref="stringPrinter" />
-    <constructor-arg name="names">
-      <list>
-        <value>Spring</value>
-        <value>IoC</value>
-        <value>DI</value>
-      </list>
-    </constructor-arg>
-    <constructor-arg name="nameAndAge">
-      <map>
-        <entry key="Kim" value="30" />
-        <entry key="Lee" value="35" />
-        <entry key="Han" value="40" />
-      </map>
-    </constructor-arg>
-  </bean>
-
-  <bean id = "stringPrinter" class = "di.xml.StringPrinter" />
-  <bean id = "consolePrinter" class = "di.xml.ConsolePrinter" />
 
 </beans>

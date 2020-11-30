@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
 
-import java.util.Iterator;
-import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +22,8 @@ public class HelloBeanJunitTest {
 	@Test
 	public void test1() {
 
-		Hello hello1 = context.getBean("helloWithConstructorIndex", Hello.class);
-		Hello hello2 = (Hello) context.getBean("helloWithConstructorIndex");
+		Hello hello1 = context.getBean("helloWithProperty", Hello.class);
+		Hello hello2 = (Hello) context.getBean("helloWithProperty");
 		hello1.print(); // hello1이 가진 stringPrinter의 stringBuffer에 sayHello 값이 appned 된 상태
 
 		assertSame(hello1, hello2);
