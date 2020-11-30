@@ -10,8 +10,8 @@ class HelloBeanTest {
 	public static void main(String[] args) {
 		ApplicationContext context = new GenericXmlApplicationContext("config/beans.xml");
 
-		Hello hello = context.getBean("hello", Hello.class);
-		Hello hello2 = (Hello) context.getBean("hello");
+		Hello hello = context.getBean("helloWithProperty", Hello.class);
+		Hello hello2 = (Hello) context.getBean("helloWithProperty");
 
 		System.out.println(hello.sayHello());
 		System.out.println(hello == hello2);
