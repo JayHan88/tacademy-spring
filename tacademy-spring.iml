@@ -20,6 +20,7 @@
         <fileset id="fileset" name="Beans" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/config/beans.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/config/annotation.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/config/beans.xml</file>
         </fileset>
       </configuration>
     </facet>
