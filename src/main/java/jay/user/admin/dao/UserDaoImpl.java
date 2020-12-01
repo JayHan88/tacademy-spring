@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	// class for RowMapper interface
@@ -39,7 +39,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public UserVO read(String id) {
 
-		String SQL = "select * from users where userid = ?";
+		String SQL = "select * from users_test where userid = ?";
 		try {
 			UserVO userVO = jdbcTemplate.queryForObject(SQL, new Object[] { id }, new UserMapper());
 			return userVO;
@@ -51,27 +51,27 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void insert(UserVO userVO) {
-		String SQL = "insert into users (userid, name, gender, city) values (?, ?, ?, ?)";
+		String SQL = "insert into users_test (userid, name, gender, city) values (?, ?, ?, ?)";
 		jdbcTemplate.update(SQL, userVO.getUserId(), userVO.getName(), userVO.getGender(), userVO.getCity());
 	}
 
 	@Override
 	public List<UserVO> readAll() {
-		String SQL = "select * from users";
+		String SQL = "select * from users_test";
 		List<UserVO> userDtoList = jdbcTemplate.query(SQL, new UserMapper());
 		return userDtoList;
 	}
 
 	@Override
 	public void delete(String id) {
-		String SQL = "delete from users where userid = ?";
+		String SQL = "delete from users_test where userid = ?";
 		jdbcTemplate.update(SQL, id);
 	}
 
 	@Override
-	public void update(UserVO userV) {
-		String SQL = "update users set name = ?, gender = ?, city = ? where userid = ?";
-		jdbcTemplate.update(SQL, userV.getName(), userV.getGender(), userV.getCity(), userV.getUserId());
+	public void update(UserVO userVO) {
+		String SQL = "update users_test set name = ?, gender = ?, city = ? where userid = ?";
+		jdbcTemplate.update(SQL, userVO.getName(), userVO.getGender(), userVO.getCity(), userVO.getUserId());
 
 	}
 

@@ -6,6 +6,16 @@
 
   <context:property-placeholder location="classpath:config/value.properties" />
 
+  <context:component-scan base-package="jay.user.admin" />
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+<!--      <property name="driverClass" value="com.mysql.jdbc.Driver" />-->
+      <property name="driverClass" value="com.mysql.jdbc.Driver" />
+      <property name="url" value="${db.url}" />
+      <property name="username" value="${db.username}" />
+      <property name="password" value="${db.password}" />
+    </bean>
+
     <bean id = "helloWithProperty" class="di.xml.Hello">
       <property name="name" value="${myname}" />
       <property name="printer" ref="${myprinter}" />
