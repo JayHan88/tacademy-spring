@@ -12,7 +12,7 @@
 
   <aop:config>
     <aop:aspect id="traceAspect" ref="performanceTraceAdvice">
-      <aop:around pointcut="execution(public * jay.user.admin.service..*(..))" method="trace"/>
+      <aop:around pointcut="execution(public * jay.user.admin.service..*.*(..))" method="trace"/>
     </aop:aspect>
   </aop:config>
 
