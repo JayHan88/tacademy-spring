@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.test.context.jdbc.Sql;
 
-@Repository("userDao")
+// @Repository("userDao")
 public class UserDaoImplMyBatis implements UserDao {
 
 	@Autowired

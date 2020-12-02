@@ -33,8 +33,8 @@ public class UserClientTest {
 
 		dao.deleteAll();
 		dao.insert(new UserVO("han5517", "Jay", "M", "SEOUL"));
-		dao.update(new UserVO("han5517", "Kate", "F", "Pohang"));
-		dao.delete("han5517");
+//		dao.update(new UserVO("han5517", "Kate", "F", "Pohang"));
+//		dao.delete("han5517");
 
 		List<UserVO> list = dao.readAll();
 		for(UserVO userVO : list) {
@@ -43,7 +43,7 @@ public class UserClientTest {
 	}
 
 	// MyBatis config test
-	@Test
+	@Test @Ignore
 	public void configTest() {
 		SqlSession sqlSession = context.getBean("sqlSession", SqlSession.class);
 		System.out.println(sqlSession.getClass().getName());
