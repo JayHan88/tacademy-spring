@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="userNS">
+
+  <select id="selectById" parameterType="string" resultType="User" >
+    select * from users_test where userid = #{userId}
+  </select>
+
+  <select id="selectUserList" resultType="User">
+    select * from users_test order by userid
+  </select>
+
+  <insert id="insertUser" parameterType="User">
+    insert into users_test values(#{userId}, #{name}, #{gender}, #{city})
+  </insert>
+
+  <update id="updateUser" parameterType="User">
+    update users_test set name = #{name}, gender = #{gender}, city = #{city} where userid = #{userId}
+  </update>
+
+  <delete id="deleteUser" parameterType="string">
+    delete from users_test where userid = #{userId}
+  </delete>
+
+  <delete id="deleteAll">
+    delete from users_test
+  </delete>
+
+</mapper>
+

@@ -11,8 +11,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-@Repository("userDao")
-public class UserDaoImpl implements UserDao {
+// @Repository("userDao")
+public class UserDaoImplJDBC implements UserDao {
 
 	private JdbcTemplate jdbcTemplate;
 
@@ -72,8 +72,10 @@ public class UserDaoImpl implements UserDao {
 	public void update(UserVO userVO) {
 		String SQL = "update users_test set name = ?, gender = ?, city = ? where userid = ?";
 		jdbcTemplate.update(SQL, userVO.getName(), userVO.getGender(), userVO.getCity(), userVO.getUserId());
-
 	}
+
+	@Override
+	public void deleteAll() {}
 
 
 }

@@ -15,4 +15,6 @@ public interface UserDao {
 
 	public UserVO read(String id);
 
+	public void deleteAll();
+
 }
