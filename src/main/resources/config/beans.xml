@@ -8,17 +8,11 @@
   <context:property-placeholder location="classpath:config/value.properties" />
   <context:component-scan base-package="jay.user.admin" />
 
-  <!-- MapperScaneerConfigurer 설정 -->
-  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" >
-    <property name="basePackage" value="jay.user.admin.dao" />
-    <property name="annotationClass" value="jay.user.admin.dao.MyMapper" />
-  </bean>
-
   <!-- Mapper 설정 -->
-<!--  <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" >-->
-<!--    <property name="mapperInterface" value="jay.user.admin.dao.UserMapper" />-->
-<!--    <property name="sqlSessionTemplate" ref="sqlSession" />-->
-<!--  </bean>-->
+  <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" >
+    <property name="mapperInterface" value="jay.user.admin.dao.UserMapper" />
+    <property name="sqlSessionTemplate" ref="sqlSession" />
+  </bean>
 
   <!-- mybatis-srping 설정 -->
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

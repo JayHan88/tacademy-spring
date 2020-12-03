@@ -2,8 +2,9 @@ package jay.user.admin.dao;
 
 import java.util.List;
 import jay.user.admin.vo.UserVO;
+import org.apache.ibatis.annotations.Mapper;
 
-@MyMapper
+@Mapper
 public interface UserMapper {
 	void insertUser(UserVO userVO);
 
